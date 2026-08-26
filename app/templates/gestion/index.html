@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "partials/macros.html" import confirm_delete, breadcrumb, table_toolbar %}
-{% block title %}Gestiones — SHALOM{% endblock %}
+{% block title %}Gestiones — IFA{% endblock %}
 {% block page_title %}Gestiones Académicas{% endblock %}
 {% block content %}
 {{ breadcrumb([('Inicio', '/'), ('Gestiones', '#')]) }}
@@ -13,7 +13,7 @@
 
 <div class="card p-0 overflow-hidden">
   <!-- Cabecera tabla -->
-  <div style="background:linear-gradient(135deg,#7C1F3E,#5C1530);">
+  <div style="background:linear-gradient(135deg,#193B68,#15345C);">
     <table class="w-full">
       <thead><tr>
         <th class="px-4 py-3 text-left text-xs font-bold text-white/80 uppercase tracking-wider w-20">
@@ -40,7 +40,7 @@
       {% for g in gestiones %}
       <tr class="border-t border-slate-100 hover:bg-primary-50/40 transition-colors">
         <td class="px-4 py-3 w-20">
-          <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-sm font-bold" style="background:#FAE4EB;color:#4A1226;">{{ g.gestion }}</span>
+          <span class="inline-flex items-center px-2.5 py-1 rounded-lg text-sm font-bold" style="background:#D7E6FA;color:#0F233E;">{{ g.gestion }}</span>
         </td>
         <td class="px-4 py-3 text-sm text-slate-700">{{ g.plan }}</td>
         <td class="px-4 py-3 text-sm text-slate-600">

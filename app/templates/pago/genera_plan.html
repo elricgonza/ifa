@@ -10,7 +10,7 @@
   <div class="card mb-6">
     <div class="flex items-center gap-4 mb-5">
       <div class="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
-           style="background: linear-gradient(135deg,#7C1F3E,#5C1530);">
+           style="background: linear-gradient(135deg,#193B68,#15345C);">
         <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"/>
@@ -69,7 +69,7 @@
       <form method="POST" action="{{ url_for('pago.genera_plan') }}">
         <button type="submit"
                 class="px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all hover:opacity-90 flex items-center gap-2"
-                style="background: linear-gradient(135deg,#7C1F3E,#5C1530);"
+                style="background: linear-gradient(135deg,#193B68,#15345C);"
                 onclick="this.disabled=true; this.innerText='Procesando...'; this.form.submit();">
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -127,7 +127,7 @@
   {# Detalle por alumno #}
   {% if detalle %}
   <div class="card p-0 overflow-hidden">
-    <div style="background:linear-gradient(135deg,#7C1F3E,#5C1530);">
+    <div style="background:linear-gradient(135deg,#193B68,#15345C);">
       <table class="w-full">
         <thead>
           <tr>
@@ -169,7 +169,7 @@
   <div class="flex justify-end mt-6">
     <a href="{{ url_for('pago.index') }}"
        class="px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all hover:opacity-90"
-       style="background: linear-gradient(135deg,#7C1F3E,#5C1530);">
+       style="background: linear-gradient(135deg,#193B68,#15345C);">
       Ir a Pagos
     </a>
   </div>

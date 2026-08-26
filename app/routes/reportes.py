@@ -27,9 +27,9 @@ from app.models import (Alumno, Asignado, Curso, Grado, Inscrito,
 
 reportes_bp = Blueprint('reportes', __name__, url_prefix='/reportes')
 
-_PRIM     = (124, 31, 62)   # #7C1F3E
-_XL_HDR   = 'FF7C1F3E'
-_XL_ALT   = 'FFFAE4EB'
+_PRIM     = (25, 59, 104)   # #193B68
+_XL_HDR   = 'FF193B68'
+_XL_ALT   = 'FFD7E6FA'
 _XL_GREEN = 'FFD4EDDA'
 _XL_RED   = 'FFF8D7DA'
 _XL_AMBER = 'FFFFF3CD'

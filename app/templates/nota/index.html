@@ -7,8 +7,8 @@
 <!-- Banner info profesor -->
 {% if es_profesor and profesor %}
 <div class="flex items-center gap-3 px-4 py-3 rounded-xl mb-5 text-sm font-medium border"
-     style="background:#FAE4EB;border-color:#F2BAC9;color:#4A1226;">
-  <svg class="w-5 h-5 flex-shrink-0" style="color:#7C1F3E;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+     style="background:#D7E6FA;border-color:#A8C7F0;color:#0F233E;">
+  <svg class="w-5 h-5 flex-shrink-0" style="color:#193B68;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
     <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
   </svg>
   Mostrando calificaciones asignadas a <strong class="ml-1">{{ profesor.nombre_completo }}</strong>
@@ -18,8 +18,8 @@
 <!-- Filtros -->
 <div class="card mb-5">
   <div class="flex items-center gap-3 mb-4">
-    <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:#FAE4EB;">
-      <svg class="w-4 h-4" style="color:#7C1F3E;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+    <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:#D7E6FA;">
+      <svg class="w-4 h-4" style="color:#193B68;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
         <path stroke-linecap="round" stroke-linejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
       </svg>
     </div>
@@ -87,7 +87,7 @@
     <div class="flex items-end gap-2">
       <button type="submit"
               class="flex-1 inline-flex items-center justify-center gap-2 h-10 px-4 rounded-xl text-sm font-semibold text-white transition-all hover:opacity-90"
-              style="background:#7C1F3E;">
+              style="background:#193B68;">
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
         </svg>
@@ -113,7 +113,7 @@
       {% if cur_id %}
       {% set curso_sel = cursos | selectattr('id', 'equalto', cur_id) | first %}
       {% if curso_sel %}
-      <span class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg" style="background:#FAE4EB;color:#7C1F3E;">
+      <span class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg" style="background:#D7E6FA;color:#193B68;">
         <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M7 20H2v-2a3 3 0 015.356-1.857"/></svg>
         {{ curso_sel.gestion }} — {{ curso_sel.paralelo }}
       </span>
@@ -138,7 +138,7 @@
     {% if current_user.has_permission('nota_crear') %}
     <a href="{{ url_for('nota.nueva') }}"
        class="inline-flex items-center gap-2 h-10 px-4 rounded-xl text-sm font-bold text-white transition-all hover:opacity-90 flex-shrink-0"
-       style="background:linear-gradient(135deg,#7C1F3E,#5C1530);">
+       style="background:linear-gradient(135deg,#193B68,#15345C);">
       <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
       </svg>
@@ -150,7 +150,7 @@
 
 <!-- Tabla -->
 <div class="card p-0 overflow-hidden">
-  <div style="background:linear-gradient(135deg,#7C1F3E,#5C1530);">
+  <div style="background:linear-gradient(135deg,#193B68,#15345C);">
     <table class="w-full"><thead><tr>
       <th class="px-4 py-3 text-left text-xs font-bold text-white/80 uppercase tracking-wider">Alumno</th>
       <th class="px-4 py-3 text-left text-xs font-bold text-white/80 uppercase tracking-wider">Materia</th>
@@ -168,7 +168,7 @@
       <td class="px-4 py-3">
         <div class="flex items-center gap-2">
           <div class="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0"
-               style="background:linear-gradient(135deg,#7C1F3E,#5C1530);">
+               style="background:linear-gradient(135deg,#193B68,#15345C);">
             {{ n.inscrito.alumno.nombre[0] if n.inscrito.alumno else '?' }}
           </div>
           <span class="text-sm font-semibold text-slate-800">

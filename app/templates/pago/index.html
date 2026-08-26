@@ -23,7 +23,7 @@
       </div>
       <button id="btn-ver" onclick="irAPagos()"
               class="h-10 px-5 rounded-xl text-sm font-semibold text-white flex-shrink-0 transition hover:opacity-90"
-              style="background:#7C1F3E;">
+              style="background:#193B68;">
         Ver Pagos
       </button>
       {% if alu_id %}
@@ -86,7 +86,7 @@
 {% endfor %}
 
 <div class="card p-0 overflow-hidden">
-  <div style="background:linear-gradient(135deg,#7C1F3E,#5C1530);"><table class="w-full"><thead><tr>
+  <div style="background:linear-gradient(135deg,#193B68,#15345C);"><table class="w-full"><thead><tr>
     <th class="px-4 py-3 text-left text-xs font-bold text-white/80 uppercase tracking-wider">Cuota</th>
     <th class="px-4 py-3 text-left text-xs font-bold text-white/80 uppercase tracking-wider">Monto</th>
     <th class="px-4 py-3 text-left text-xs font-bold text-white/80 uppercase tracking-wider">Estado</th>
@@ -201,7 +201,7 @@
           div.className = 'flex items-center gap-3 px-4 py-2.5 hover:bg-primary-50 cursor-pointer transition-colors border-b border-slate-100 last:border-0';
           div.innerHTML = `
             <div class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0"
-                 style="background:linear-gradient(135deg,#7C1F3E,#5C1530)">${a.texto[0] || '?'}</div>
+                 style="background:linear-gradient(135deg,#193B68,#15345C)">${a.texto[0] || '?'}</div>
             <div class="flex-1 min-w-0">
               <p class="text-sm font-semibold text-slate-800 truncate">${a.texto}</p>
               <p class="text-xs text-slate-400">CI: ${a.ci}</p>

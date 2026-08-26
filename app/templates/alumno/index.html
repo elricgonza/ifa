@@ -5,7 +5,7 @@
 {{ breadcrumb([('Inicio', '/'), ('Alumnos', '#')]) }}
 {{ table_toolbar(total,'Nuevo Alumno',url_for('alumno.nuevo'),current_user.has_permission('alumno_crear'),'Buscar por nombre o CI...','q',q|default('')) }}
 <div class="card p-0 overflow-hidden">
-  <div style="background:linear-gradient(135deg,#7C1F3E,#5C1530);"><table class="w-full"><thead><tr>
+  <div style="background:linear-gradient(135deg,#193B68,#15345C);"><table class="w-full"><thead><tr>
     <th class="px-4 py-3 text-left text-xs font-bold text-white/80 uppercase tracking-wider"><div class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1z"/></svg>Alumno</div></th>
     <th class="px-4 py-3 text-left text-xs font-bold text-white/80 uppercase tracking-wider">C.I.</th>
     <th class="px-4 py-3 text-left text-xs font-bold text-white/80 uppercase tracking-wider">Email</th>
@@ -16,7 +16,7 @@
     {% for a in alumnos %}
     <tr class="border-t border-slate-100 hover:bg-primary-50/40 transition-colors">
       <td class="px-4 py-3"><div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 text-white" style="background:linear-gradient(135deg,#7C1F3E,#5C1530);">{{ a.nombre[0] if a.nombre else '?' }}</div>
+        <div class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 text-white" style="background:linear-gradient(135deg,#193B68,#15345C);">{{ a.nombre[0] if a.nombre else '?' }}</div>
         <span class="text-sm font-semibold text-slate-800">{{ a.nombre_completo }}</span>
       </div></td>
       <td class="px-4 py-3 text-sm text-slate-600 font-mono">{{ a.ci or '—' }}</td>
@@ -51,7 +51,7 @@
       {% if p %}
         {% if p == pagination.page %}
         <span class="h-8 w-8 flex items-center justify-center rounded-lg text-sm font-semibold text-white"
-              style="background:#7C1F3E;">{{ p }}</span>
+              style="background:#193B68;">{{ p }}</span>
         {% else %}
         <a href="{{ url_for('alumno.index', page=p, q=q) }}"
            class="h-8 w-8 flex items-center justify-center rounded-lg text-sm text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 transition-all">{{ p }}</a>

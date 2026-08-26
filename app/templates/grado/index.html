@@ -62,7 +62,7 @@
 
     {# Acciones #}
     <div class="flex items-center gap-2 flex-shrink-0">
-      <button type="submit" class="inline-flex items-center gap-2 h-10 px-4 rounded-xl text-sm font-semibold text-white hover:opacity-90 transition-all" style="background:#7C1F3E;">
+      <button type="submit" class="inline-flex items-center gap-2 h-10 px-4 rounded-xl text-sm font-semibold text-white hover:opacity-90 transition-all" style="background:#193B68;">
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
         </svg>
@@ -80,7 +80,7 @@
       {% if current_user.has_permission('grado_crear') %}
       <a href="{{ url_for('grado.nuevo') }}"
          class="inline-flex items-center gap-2 h-10 px-4 rounded-xl text-sm font-bold text-white hover:opacity-90 transition-all"
-         style="background:linear-gradient(135deg,#7C1F3E,#5C1530);">
+         style="background:linear-gradient(135deg,#193B68,#15345C);">
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
         </svg>
@@ -103,7 +103,7 @@
 
 {# ── Tabla ── #}
 <div class="card p-0 overflow-hidden">
-  <div style="background:linear-gradient(135deg,#7C1F3E,#5C1530);">
+  <div style="background:linear-gradient(135deg,#193B68,#15345C);">
     <table class="w-full"><thead><tr>
       <th class="px-4 py-3 text-left text-xs font-bold text-white/80 uppercase tracking-wider">
         <div class="flex items-center gap-1.5">
@@ -124,7 +124,7 @@
       <td class="px-4 py-3 text-sm font-semibold text-slate-800">{{ g.grado }}</td>
       <td class="px-4 py-3 text-sm text-slate-600">{{ g.nivel }}</td>
       <td class="px-4 py-3">
-        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold" style="background:#FAE4EB;color:#7C1F3E;">
+        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold" style="background:#D7E6FA;color:#193B68;">
           {{ g.gestion.gestion }}
         </span>
       </td>
@@ -154,7 +154,7 @@
           {% if q or ges_id or nivel %}Sin resultados con los filtros aplicados{% else %}Sin grados registrados{% endif %}
         </p>
         {% if q or ges_id or nivel %}
-        <a href="{{ url_for('grado.index') }}" class="text-xs font-semibold hover:underline" style="color:#7C1F3E;">Limpiar filtros</a>
+        <a href="{{ url_for('grado.index') }}" class="text-xs font-semibold hover:underline" style="color:#193B68;">Limpiar filtros</a>
         {% endif %}
       </div>
     </td></tr>

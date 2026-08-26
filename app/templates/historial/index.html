@@ -9,7 +9,7 @@
 <div class="flex items-center justify-between mb-5">
   <div class="flex items-center gap-3">
     <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-         style="background:linear-gradient(135deg,#7C1F3E,#5C1530);">
+         style="background:linear-gradient(135deg,#193B68,#15345C);">
       <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -94,7 +94,7 @@
       </a>
       <button type="submit"
               class="px-5 py-2 rounded-lg text-sm font-semibold text-white transition-all hover:opacity-90"
-              style="background:linear-gradient(135deg,#7C1F3E,#5C1530);">
+              style="background:linear-gradient(135deg,#193B68,#15345C);">
         Filtrar
       </button>
     </div>
@@ -107,7 +107,7 @@
 <div class="card p-0 overflow-hidden">
 
   {# Cabecera de la tabla #}
-  <div style="background:linear-gradient(135deg,#7C1F3E,#5C1530);">
+  <div style="background:linear-gradient(135deg,#193B68,#15345C);">
     <table class="w-full table-fixed">
       <colgroup>
         <col style="width:140px">  {# fecha/hora #}
@@ -274,7 +274,7 @@
                             fecha_d=f_fecha_d, fecha_h=f_fecha_h, q=f_q) }}"
            class="px-3 py-1.5 text-xs font-semibold rounded-lg transition
                   {% if p == pagination.page %}text-white{% else %}bg-slate-100 text-slate-600 hover:bg-slate-200{% endif %}"
-           {% if p == pagination.page %}style="background:linear-gradient(135deg,#7C1F3E,#5C1530);"{% endif %}>
+           {% if p == pagination.page %}style="background:linear-gradient(135deg,#193B68,#15345C);"{% endif %}>
           {{ p }}
         </a>
       {% else %}

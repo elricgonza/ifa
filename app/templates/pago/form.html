@@ -15,7 +15,7 @@
 
   <!-- Encabezado alumno -->
   <div class="card mb-5 p-0 overflow-hidden">
-    <div style="background:linear-gradient(135deg,#7C1F3E,#5C1530);" class="px-6 py-4 flex items-center gap-4">
+    <div style="background:linear-gradient(135deg,#193B68,#15345C);" class="px-6 py-4 flex items-center gap-4">
       <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
         {{ alumno.nombre[0] if alumno else '?' }}
       </div>
@@ -40,7 +40,7 @@
       </div>
       <div class="w-full bg-slate-100 rounded-full h-2 mb-3">
         <div class="h-2 rounded-full transition-all"
-             style="width:{{ progreso }}%; background:linear-gradient(90deg,#7C1F3E,#5C1530);"></div>
+             style="width:{{ progreso }}%; background:linear-gradient(90deg,#193B68,#15345C);"></div>
       </div>
       <!-- Mini-timeline de cuotas -->
       <div class="flex gap-1.5 flex-wrap">
@@ -50,7 +50,7 @@
             {% if op.pagado %}bg-emerald-500 border-emerald-500 text-white
             {% elif op.id == pago.id %}text-white border-transparent{% raw %}{% endraw %}
             {% else %}bg-white border-slate-200 text-slate-400{% endif %}"
-            {% if op.id == pago.id %}style="background:#7C1F3E;border-color:#7C1F3E;"{% endif %}
+            {% if op.id == pago.id %}style="background:#193B68;border-color:#193B68;"{% endif %}
             title="Cuota #{{ op.nro_cuota }} — Bs. {{ '%.2f'|format(op.cuota) }}{% if op.pagado %} (Pagada){% endif %}">
             {% if op.pagado %}
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
@@ -70,14 +70,14 @@
   <div class="card">
     <!-- Detalle de la cuota a pagar -->
     <div class="rounded-xl px-5 py-4 mb-6 flex items-center justify-between"
-         style="background:#FAE4EB; border:1px solid #F2BAC9;">
+         style="background:#D7E6FA; border:1px solid #A8C7F0;">
       <div>
-        <p class="text-xs font-semibold uppercase tracking-wider" style="color:#7C1F3E;">Registrando pago de</p>
-        <p class="text-xl font-bold mt-0.5" style="color:#4A1226;">Cuota #{{ pago.nro_cuota }}</p>
+        <p class="text-xs font-semibold uppercase tracking-wider" style="color:#193B68;">Registrando pago de</p>
+        <p class="text-xl font-bold mt-0.5" style="color:#0F233E;">Cuota #{{ pago.nro_cuota }}</p>
       </div>
       <div class="text-right">
         <p class="text-xs text-slate-500 mb-0.5">Monto a cobrar</p>
-        <p class="text-3xl font-bold" style="color:#631832;">Bs. {{ "%.2f"|format(pago.cuota) }}</p>
+        <p class="text-3xl font-bold" style="color:#132E51;">Bs. {{ "%.2f"|format(pago.cuota) }}</p>
       </div>
     </div>
 

@@ -26,8 +26,8 @@
   }
   .ts-wrapper.single.input-active .ts-control {
     background: var(--surface) !important;
-    border-color: #7C1F3E !important;
-    box-shadow: 0 0 0 3px rgba(124,31,62,.15) !important;
+    border-color: #193B68 !important;
+    box-shadow: 0 0 0 3px rgba(25,59,104,.15) !important;
   }
   .ts-dropdown {
     border-radius: 0.75rem !important;
@@ -50,8 +50,8 @@
   }
   .ts-dropdown .option:hover,
   .ts-dropdown .option.active {
-    background: rgba(124,31,62,.08) !important;
-    color: #7C1F3E !important;
+    background: rgba(25,59,104,.08) !important;
+    color: #193B68 !important;
   }
   .ts-dropdown .no-results {
     color: var(--text-muted) !important;
@@ -61,8 +61,8 @@
   /* Icono CI (badge pequeño dentro de cada opción) */
   .opt-ci {
     font-size: 0.7rem;
-    background: rgba(124,31,62,.1);
-    color: #7C1F3E;
+    background: rgba(25,59,104,.1);
+    color: #193B68;
     border-radius: 4px;
     padding: 1px 5px;
     font-weight: 600;
@@ -96,8 +96,8 @@
     <!-- Encabezado -->
     <div class="flex items-center gap-4 pb-5 mb-6 border-b" style="border-color:var(--border);">
       <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-           style="background:linear-gradient(135deg,#FAE4EB,#F2BAC9);">
-        <svg class="w-6 h-6" style="color:#7C1F3E;" fill="none" viewBox="0 0 24 24"
+           style="background:linear-gradient(135deg,#D7E6FA,#A8C7F0);">
+        <svg class="w-6 h-6" style="color:#193B68;" fill="none" viewBox="0 0 24 24"
              stroke="currentColor" stroke-width="1.8">
           <path stroke-linecap="round" stroke-linejoin="round"
                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
@@ -232,7 +232,7 @@
               <input type="checkbox" name="reserva"
                      {% if inscrito and inscrito.reserva %}checked{% endif %}
                      class="w-4 h-4 rounded border-slate-300 cursor-pointer"
-                     style="accent-color:#7C1F3E;">
+                     style="accent-color:#193B68;">
               <span class="text-sm font-medium" style="color:var(--text-primary);">Reserva</span>
             </label>
             <label class="flex-1 flex items-center gap-2.5 p-3 rounded-xl border cursor-pointer
@@ -241,7 +241,7 @@
               <input type="checkbox" name="inscrito"
                      {% if not inscrito or inscrito.inscrito %}checked{% endif %}
                      class="w-4 h-4 rounded border-slate-300 cursor-pointer"
-                     style="accent-color:#7C1F3E;">
+                     style="accent-color:#193B68;">
               <span class="text-sm font-medium" style="color:var(--text-primary);">Inscrito</span>
             </label>
             {% if inscrito %}
@@ -282,13 +282,13 @@
         <!-- Nota informativa (solo en creación) -->
         {% if not inscrito %}
         <div class="flex items-start gap-3 p-4 rounded-xl border"
-             style="background:#FAE4EB; border-color:#F2BAC9;">
-          <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#7C1F3E;" fill="none"
+             style="background:#D7E6FA; border-color:#A8C7F0;">
+          <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#193B68;" fill="none"
                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round"
                   d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
           </svg>
-          <p class="text-sm" style="color:#4A1226;">
+          <p class="text-sm" style="color:#0F233E;">
             <strong>Nota:</strong> Al confirmar la inscripción se generará automáticamente el plan
             de pagos según el costo del curso.
           </p>
@@ -301,7 +301,7 @@
         <button type="submit"
                 class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold
                        text-white hover:opacity-90 transition-all"
-                style="background:linear-gradient(135deg,#7C1F3E,#5C1530);">
+                style="background:linear-gradient(135deg,#193B68,#15345C);">
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round"
                   d="{{ 'M5 13l4 4L19 7' if inscrito else 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4' }}"/>
