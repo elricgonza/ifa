@@ -760,27 +760,38 @@ def index():
     es_profesor = current_user.has_role('profesor')
     profesor    = _profesor_actual() if es_profesor else None
 
+    if es_profesor and not profesor:
+        flash('Su usuario no tiene un profesor vinculado. Contacte al administrador.', 'danger')
+
     cur_id = request.args.get('cur_id', type=int)
     mat_id = request.args.get('mat_id', type=int)
     q      = request.args.get('q', '').strip()
     page   = request.args.get('page', 1, type=int)
 
     # Cursos disponibles según rol
-    if es_profesor and profesor:
-        asig_ids = [a.cur_id for a in _asignaciones_profesor(profesor)]
-        cursos   = Curso.query.filter(Curso.id.in_(asig_ids)).order_by(
-                       Curso.gestion.desc(), Curso.paralelo).all()
-        # Si el profesor no seleccionó curso, auto-seleccionar el primero
-        if not cur_id and cursos:
-            cur_id = cursos[0].id
+    if es_profesor:
+        if profesor:
+            asig_ids = [a.cur_id for a in _asignaciones_profesor(profesor)]
+            cursos   = Curso.query.filter(Curso.id.in_(asig_ids)).order_by(
+                           Curso.gestion.desc(), Curso.paralelo).all()
+            # Si el profesor no seleccionó curso, auto-seleccionar el primero
+            if not cur_id and cursos:
+                cur_id = cursos[0].id
+        else:
+            # Profesor sin vincular a un registro de Profesor: no debe ver ningún curso
+            cursos = []
+            cur_id = None
     else:
         cursos = Curso.query.order_by(Curso.gestion.desc(), Curso.paralelo).all()
 
     # Materias disponibles para el filtro (filtradas por curso si aplica)
-    if cur_id and es_profesor and profesor:
-        mat_ids  = [a.mat_id for a in Asignado.query.filter_by(
-                       pro_id=profesor.id, cur_id=cur_id).all()]
-        materias = Materia.query.filter(Materia.id.in_(mat_ids)).order_by(Materia.materia).all()
+    if es_profesor:
+        if profesor and cur_id:
+            mat_ids  = [a.mat_id for a in Asignado.query.filter_by(
+                           pro_id=profesor.id, cur_id=cur_id).all()]
+            materias = Materia.query.filter(Materia.id.in_(mat_ids)).order_by(Materia.materia).all()
+        else:
+            materias = []
     elif cur_id:
         mat_ids  = [a.mat_id for a in Asignado.query.filter_by(cur_id=cur_id).all()]
         materias = Materia.query.filter(Materia.id.in_(mat_ids)).order_by(Materia.materia).all()
@@ -796,9 +807,15 @@ def index():
     if cur_id:
         query = query.filter(Inscrito.cur_id == cur_id)
 
-    # Restricción adicional para profesor: solo sus materias asignadas en ese curso
-    if es_profesor and profesor and cur_id:
-        query = query.filter(Nota.mat_id.in_([m.id for m in materias]))
+    # Restricción para profesor: solo sus materias asignadas en ese curso.
+    # Si tiene rol 'profesor' pero no está vinculado a un registro de Profesor
+    # (o no tiene curso seleccionable), no debe ver ningún registro — nunca
+    # se debe caer a la vista sin restricciones reservada para otros roles.
+    if es_profesor:
+        if profesor and cur_id:
+            query = query.filter(Nota.mat_id.in_([m.id for m in materias]))
+        else:
+            query = query.filter(db.false())
 
     if mat_id:
         query = query.filter(Nota.mat_id == mat_id)
@@ -928,6 +945,13 @@ def editar(id):
                      .all())
         materias  = Materia.query.filter(Materia.id.in_(mat_ids)).order_by(Materia.materia).all()
         pares_validos = {(a.cur_id, a.mat_id) for a in asignaciones}
+    elif es_profesor:
+        # Profesor sin vincular a un registro de Profesor: no debe ver
+        # inscritos ni materias de otros (no debería llegar aquí porque
+        # _puede_editar_nota ya lo bloquea, pero se refuerza por defecto).
+        inscritos = []
+        materias  = []
+        pares_validos = set()
     else:
         inscritos = Inscrito.query.filter_by(inscrito=True).all()
         materias  = Materia.query.order_by(Materia.materia).all()
